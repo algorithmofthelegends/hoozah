@@ -24,15 +24,7 @@ class Program
         };
 
         var result = Loop(dicValue);
-
-        if(result.Any())
-        {
-            Console.WriteLine(DicToString(dicValue));
-        }
-        else
-        {
-            Console.WriteLine(-1);
-        }
+        Console.WriteLine(result.Any() ? DicToString(result) : -1);
     }
 
     private static Dictionary<int, int> Loop(Dictionary<int,int> dic)
@@ -57,6 +49,7 @@ class Program
 
         if(bDescending)
         {
+            Console.WriteLine(DicToString(dic));
             counter++;
             if (counter == input)
                 return dic;
