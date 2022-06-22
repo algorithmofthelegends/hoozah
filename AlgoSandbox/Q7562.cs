@@ -1,18 +1,18 @@
 ﻿namespace AlgoSandbox
 {
-    public class Program
+    public static class Q7562
     {
         public static Dictionary<(int, int), int> visited = new();
         public static readonly int[] dx = new int[] { 2, 1, -1, -2, -2, -1, 1, 2 };
         public static readonly int[] dy = new int[] { 1, 2, 2, 1, -1, -2, -2, -1 };
         public static int l;
 
-        static void Main()
+        public static void Run()
         {
             var n = int.Parse(Console.ReadLine());
             var answers = new List<int>();
 
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
                 l = int.Parse(Console.ReadLine());
 
