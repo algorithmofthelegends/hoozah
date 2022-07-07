@@ -2,34 +2,53 @@
 {
     public class Program
     {
-        static int skipCounter = 0;
-
         static void Main()
         {
-            var lone = Console.ReadLine().ToCharArray();
-            var ltwo = Console.ReadLine().ToCharArray();
-            var lthree = Console.ReadLine().ToCharArray();
-            var lfour = Console.ReadLine().ToCharArray();
-            var lfive = Console.ReadLine().ToCharArray();
+            var cases = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < 15; i++)
+            foreach(var i in Enumerable.Range(0, cases))
             {
-                skipCounter = 0;
+                Dictionary<char, int> counter = new();
 
-                printLine(lone, i);
-                printLine(ltwo, i);
-                printLine(lthree, i);
-                printLine(lfour, i);
-                printLine(lfive, i);
+                var line = Console.ReadLine().ToLower();
 
-                if (skipCounter == 5) break;
+                foreach (char c in line)
+                {
+                    if (char.IsLetter(c))
+                    {
+                        if (counter.ContainsKey(c))
+                        {
+                            counter[c]++;
+                        }
+                        else
+                        {
+                            counter.Add(c, 1);
+                        }
+                    }
+                }
+
+                if (counter.Count == 26)
+                {
+                    var pangram = counter.Min(x => x.Value);
+
+                    if (pangram == 1)
+                    {
+                        Console.WriteLine($"Case {i + 1}: Pangram!");
+                    }
+                    else if(pangram == 2)
+                    {
+                        Console.WriteLine($"Case {i + 1}: Double pangram!!");
+                    }
+                    else if (pangram == 3)
+                    {
+                        Console.WriteLine($"Case {i + 1}: Triple pangram!!!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Case {i + 1}: Not a pangram");
+                }
             }
-        }
-
-        static void printLine(char[] cArray, int i)
-        {
-            if (i < cArray.Length) Console.Write(cArray[i]);
-            else skipCounter++;
         }
     }
 }
