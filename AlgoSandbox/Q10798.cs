@@ -1,11 +1,18 @@
-﻿namespace AlgoSandbox
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AlgoSandbox
 {
-    public class Program
+    internal class Q10798
     {
         static int skipCounter = 0;
 
-        static void Main()
+        public static void Run()
         {
+
             var lone = Console.ReadLine().ToCharArray();
             var ltwo = Console.ReadLine().ToCharArray();
             var lthree = Console.ReadLine().ToCharArray();
